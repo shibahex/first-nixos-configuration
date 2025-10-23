@@ -2,12 +2,12 @@
 {
 	home.packages = with pkgs; [
 		(pkgs.st.overrideAttrs (_: {
-					src = ../config/st;
+					src = ../config/suckless/st;
 					patches = [ ];
 					}))
 
 	(pkgs.dmenu.overrideAttrs (_: {
-				   src = ../config/dmenu;
+				   src = ../config/suckless/dmenu;
 				   patches = [ ];
 				   }))
 	slock
