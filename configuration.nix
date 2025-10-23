@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, suckless, ... }:
 
 {
   imports =
@@ -20,7 +20,7 @@
   services.xserver.windowManager.dwm = {
 	  enable = true;
 	  package = pkgs.dwm.overrideAttrs {
-		  src = ./config/suckless/dwm;
+			src = "${suckless}/dwm";
 	  };
   };
   services.xserver = {

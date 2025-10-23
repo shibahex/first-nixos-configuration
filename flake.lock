@@ -39,7 +39,25 @@
     "root": {
       "inputs": {
         "home-manager": "home-manager",
-        "nixpkgs": "nixpkgs"
+        "nixpkgs": "nixpkgs",
+        "suckless": "suckless"
+      }
+    },
+    "suckless": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1761252393,
+        "narHash": "sha256-I7CbPuQqDqU/eO2zbkyG7D/BZUciSapVtKiuUlFihmo=",
+        "owner": "shibahex",
+        "repo": "DWMPC",
+        "rev": "05690e36f364e73462e76d164386ac81faeead77",
+        "type": "github"
+      },
+      "original": {
+        "owner": "shibahex",
+        "ref": "fresh-install",
+        "repo": "DWMPC",
+        "type": "github"
       }
     }
   },

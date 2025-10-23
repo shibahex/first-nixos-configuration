@@ -6,8 +6,12 @@
 			url = "github:nix-community/home-manager/release-25.05";
 			inputs.nixpkgs.follows = "nixpkgs";
 		};
+		suckless = {
+			url = "github:shibahex/DWMPC/fresh-install";
+			flake = false;
+		};
 	};
-	outputs = {self, nixpkgs, home-manager, ...}:let 
+	outputs = {self, nixpkgs, home-manager, suckless, ...}:let 
 	 system = "x86_64-linux";
 	 pkgs = import nixpkgs { inherit system; };
 	in {
@@ -30,7 +34,7 @@
 			];
 		in {
 			# Suckless development shell
-			suckless = pkgs.mkShell {
+			suck = pkgs.mkShell {
 				packages = with pkgs; [
 					pkg-config
 					xorg.libX11
@@ -110,9 +114,12 @@
 							useUserPackages = true;
 							users.gecko = import ./home.nix;
 							backupFileExtension = "backup";
+							extraSpecialArgs = {inherit suckless;};
 						};
 					}
 			];
+			specialArgs = {inherit suckless;};
+
 		};
 	};
 }
