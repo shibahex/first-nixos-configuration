@@ -10,8 +10,12 @@
 			url = "github:shibahex/DWMPC/fresh-install";
 			flake = false;
 		};
+		nvim-config = {
+			url = "github.com:shibahex/kickstart.nvim";
+			flake = false;
+		}
 	};
-	outputs = {self, nixpkgs, home-manager, suckless, ...}:let 
+	outputs = {self, nixpkgs, home-manager, suckless, neovim-config ...}:let 
 	 system = "x86_64-linux";
 	 pkgs = import nixpkgs { inherit system; };
 	in {

@@ -1,4 +1,4 @@
-{config, pkgs, suckless, ...}:
+{config, pkgs,  nvim-config, ...}:
 {
 	imports = [
 		./modules/neovim.nix
@@ -8,7 +8,7 @@
 	home.username = "gecko";
 	home.homeDirectory = "/home/gecko";
 
-	home.file.".config/nvim".source = config.lib.file.mkOutOfStoreSymlink 
+	nvim-config = config.lib.file.mkOutOfStoreSymlink 
 		"${config.home.homeDirectory}/nixos-dotfiles/config/nvim";
 
 	programs.git = {
