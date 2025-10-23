@@ -1,0 +1,4 @@
+[submodule "config/suckless"]
+	path = config/suckless
+	url = https://github.com/shibahex/DWMPC.git
+	branch = fresh-install
