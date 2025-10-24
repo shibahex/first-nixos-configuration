@@ -10,3 +10,13 @@ the flake.nix automatically installs DWM & Neovim configurations from
 
 To add your own please change the URLs in the flake.nix file at the top.
 
+> [!NOTE]
+>The username set for this configuration is gecko.
+
+# Building
+to build go into the root directory of this repo with all the .nix files, then execute:
+```
+sudo nixos-rebuild switch --flake .#nixos-btw
+```
+It should build, unless hardware-configuration or the users are messed up.
+
