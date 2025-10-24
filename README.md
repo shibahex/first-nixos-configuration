@@ -1,4 +1,4 @@
-# MY FIRST NIX SETUP!
+# MY FIRST NIX SETUP! (For my NVIDIA 3080 & 9800x3d PC)
 
 > [!NOTE]
 >Please copy you hardware-configuration from /etc/nixos/ into the root of this folder before trying to build.
