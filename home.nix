@@ -26,13 +26,6 @@
 			btop
 			fastfetch
 			#_1password-gui
-
-			# Neovim setup  (make a dev shell for this)
-			# ripgrep
-			# nil
-			# nixpkgs-fmt
-			# nodejs
-			# gcc
 	];
 
 
