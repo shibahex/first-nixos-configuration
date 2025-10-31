@@ -67,13 +67,15 @@ static const char unknown_str[] = "n/a";
 static const struct arg args[] = {
 	/* function format          argument */
 	//{ datetime, "%s",           "%F %T" },
-	{ datetime, "%s |",           		"%D %a %r" },
+	{ datetime, "%s",           		"%D %a %r" },
+	{ uptime, " UP: %s |",		NULL},
 	{ cpu_perc, " CPU: %s%%",		NULL},
 	{ ram_perc, " RAM: %s%%", 		NULL},
 	//{ gpu_usage, " GPU: %s%% |", NULL },
 	//{ temp, " temp: %s |",			"/sys/class/hwmon/hwmon1/temp1_input"},
-	{ uptime, " UT: %s |",		NULL},
-	{ battery_perc, " BAT 1: %s%% |",		"BAT0"},
-	{ battery_perc, " BAT 2: %s%% |",		"BAT1"},
-	{ disk_free, " storage: %s",		"/"},
+	{ battery_perc, " BAT 1: %s%%",		"BAT0"},
+	{ battery_remaining, " (%s)",		"BAT0"},
+	{ battery_perc, " BAT 2: %s%%",		"BAT1"},
+	{ battery_remaining, " (%s)",		"BAT2"},
+	//{ disk_free, " storage: %s",		"/"},
 };
