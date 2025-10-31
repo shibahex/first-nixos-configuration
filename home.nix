@@ -17,6 +17,7 @@
 		userName = "Brandon";
 	};
 
+
 	home.stateVersion = "25.05";
 	home.packages = with pkgs; [
 			xwallpaper
@@ -25,6 +26,8 @@
 			nushell
 			btop
 			fastfetch
+		easyeffects
+		pavucontrol
 			#_1password-gui
 	];
 

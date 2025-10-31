@@ -20,7 +20,7 @@
   services.xserver.windowManager.dwm = {
 	  enable = true;
 	  package = pkgs.dwm.overrideAttrs {
-			src = "${suckless}/dwm";
+		src = "${suckless}/dwm";
 	  };
   };
   services.xserver = {
@@ -44,8 +44,7 @@
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
   # Load VirtualBox kernel modules (maybe delete)
-  #virtualisation.virtualbox.host.enable = true;
-  #virtualisation.virtualbox.host.enableExtensionPack = true;
+  virtualisation.virtualbox.host.enable = true;
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
