@@ -1,4 +1,4 @@
-{ config, pkgs, suckless, ... }:
+{ config, pkgs, ... }:
 
 {
   imports =

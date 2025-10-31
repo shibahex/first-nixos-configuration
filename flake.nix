@@ -13,6 +13,7 @@
     
     # Define suckless packages with local configs
     dwm = pkgs.dwm.overrideAttrs (oldAttrs: {
+      patches = [];
       postPatch = ''
         cp ${./config/dwm/config.h} config.h
       '';

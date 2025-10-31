@@ -1,8 +1,7 @@
-{config, pkgs, suckless, ...}:
+{config, pkgs,  ...}:
 {
 	imports = [
 		./modules/neovim.nix
-		./modules/suckless.nix
 		./modules/nu.nix
 	];
 	home.username = "gecko";
