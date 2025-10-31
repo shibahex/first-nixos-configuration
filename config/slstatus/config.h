@@ -72,6 +72,8 @@ static const struct arg args[] = {
 	{ ram_perc, " RAM: %s%%", 		NULL},
 	//{ gpu_usage, " GPU: %s%% |", NULL },
 	//{ temp, " temp: %s |",			"/sys/class/hwmon/hwmon1/temp1_input"},
-	{ uptime, " uptime: %s |",		NULL},
+	{ uptime, " UT: %s |",		NULL},
+	{ battery_perc, " BAT 1: %s%% |",		"BAT0"},
+	{ battery_perc, " BAT 2: %s%% |",		"BAT1"},
 	{ disk_free, " storage: %s",		"/"},
 };
