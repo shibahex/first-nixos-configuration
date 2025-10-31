@@ -68,9 +68,10 @@ static const struct arg args[] = {
 	/* function format          argument */
 	//{ datetime, "%s",           "%F %T" },
 	{ datetime, "%s",           		"%D %a %r" },
-	{ uptime, " UP: %s |",		NULL},
+	{ uptime, " | UP: %s |",		NULL},
 	{ cpu_perc, " CPU: %s%%",		NULL},
 	{ ram_perc, " RAM: %s%%", 		NULL},
+	{ ram_used, " (%s) |", 		NULL},
 	//{ gpu_usage, " GPU: %s%% |", NULL },
 	//{ temp, " temp: %s |",			"/sys/class/hwmon/hwmon1/temp1_input"},
 	{ battery_perc, " BAT 1: %s%%",		"BAT0"},
