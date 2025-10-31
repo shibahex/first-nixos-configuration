@@ -6,15 +6,42 @@
 			url = "github:nix-community/home-manager/release-25.05";
 			inputs.nixpkgs.follows = "nixpkgs";
 		};
-		suckless = {
-			url = "github:shibahex/DWMPC/fresh-install";
-			flake = false;
-		};
 	};
-	outputs = {self, nixpkgs, home-manager, suckless, ...}:let 
+	outputs = {self, nixpkgs, home-manager, ...}:let 
 	 system = "x86_64-linux";
 	 pkgs = import nixpkgs { inherit system; };
+	 
 	in {
+	
+		 # Suckless applications with local configs
+		 dwm = packages.${system}.default = pkgs.dwm.overrideAttrs (oldAttrs: {
+			postPatch = ''
+				cp ${./config/dwm/config.h} config.h
+			'';
+		 });
+		 
+		 dmenu = pkgs.dmenu.overrideAttrs (oldAttrs: {
+			postPatch = ''
+				cp ${./config/dmenu/config.h} config.h
+			'';
+		 });
+		 
+		 st = pkgs.st.overrideAttrs (oldAttrs: {
+			postPatch = ''
+				cp ${./config/st/config.h} config.h
+			'';
+		 });
+		 
+		 slstatus = pkgs.slstatus.overrideAttrs (oldAttrs: {
+			postPatch = ''
+				cp ${./config/slstatus/config.h} config.h
+			'';
+		 });
+		# Export the suckless packages
+		#packages.${system} = {
+		#	inherit dwm dmenu st slstatus;
+		#};
+		
 		devShells.${system} = let
 			# Base neovim packages
 			neovimPackages = with pkgs; [
@@ -63,7 +90,7 @@
 				packages = with pkgs; [
 					rustc
 					cargo
-					rustfmt
+	rustfmt
 					clippy
 					rust-analyzer
 				];
@@ -114,11 +141,16 @@
 							useUserPackages = true;
 							users.gecko = import ./home.nix;
 							backupFileExtension = "backup";
-							extraSpecialArgs = {inherit suckless;};
+							#extraSpecialArgs = {
+							#	inherit suckless dwm dmenu st slstatus;
+							#};
 						};
 					}
 			];
-			specialArgs = {inherit suckless;};
+	
+	#specialArgs = {
+	#			inherit suckless dwm dmenu st slstatus;
+	#		};
 
 		};
 	};

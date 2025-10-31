@@ -17,12 +17,6 @@
 
   services.displayManager.ly.enable = true;
 
-  services.xserver.windowManager.dwm = {
-	  enable = true;
-	  package = pkgs.dwm.overrideAttrs {
-		src = "${suckless}/dwm";
-	  };
-  };
   services.xserver = {
 	  enable = true;
 	  autorun = false;
