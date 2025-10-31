@@ -21,7 +21,7 @@
     
     dmenu = pkgs.dmenu.overrideAttrs (oldAttrs: {
       postPatch = ''
-        cp ${./config/denu/config.h} config.h
+        cp ${./config/dmenu/config.h} config.h
       '';
     });
     

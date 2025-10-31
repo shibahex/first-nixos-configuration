@@ -71,7 +71,7 @@ static const struct arg args[] = {
 	{ cpu_perc, " CPU: %s%%",		NULL},
 	{ ram_perc, " RAM: %s%%", 		NULL},
 	//{ gpu_usage, " GPU: %s%% |", NULL },
-	{ temp, " temp: %s |",			"/sys/class/hwmon/hwmon1/temp1_input"},
+	//{ temp, " temp: %s |",			"/sys/class/hwmon/hwmon1/temp1_input"},
 	{ uptime, " uptime: %s |",		NULL},
 	{ disk_free, " storage: %s",		"/"},
 };
