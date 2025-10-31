@@ -14,12 +14,6 @@ static const char col_bg_sel[]    = "#24283b";
 static const char col_border_sel[] = "#7aa2f7";
 static const char col_border_norm[] = "#24283b";
 
-// Try to autostart slstatus
-static const char *const autostart[] = {
-    "slstatus", NULL,
-    NULL /* terminate */
-};
-
 static const char *colors[][3] = {
 	/*               fg           bg           border   */
 	[SchemeNorm] = { col_fg_norm, col_bg_norm, col_border_norm },
