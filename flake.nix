@@ -161,6 +161,26 @@
             package = dwm;
           };
         }
+
+        # Add slstatus systemd service in home-manager
+        {
+          home-manager.users.gecko = {
+            systemd.user.services.slstatus = {
+              Unit = {
+                Description = "slstatus status bar";
+                After = [ "graphical-session-pre.target" ];
+                PartOf = [ "graphical-session.target" ];
+              };
+              Service = {
+                ExecStart = "${slstatus}/bin/slstatus";
+                Restart = "on-failure";
+              };
+              Install = {
+                WantedBy = [ "graphical-session.target" ];
+              };
+            };
+          };
+        }
       ];
       specialArgs = {
         inherit dwm dmenu st slstatus;
