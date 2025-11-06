@@ -23,7 +23,7 @@
 	  autoRepeatDelay = 200;
 	  autoRepeatInterval = 35;
   };
-  users.users.gecko = {
+  users.users.shiba = {
     isNormalUser = true;
     description = "brandon";
     extraGroups = [ "networkmanager" "wheel" "vboxusers" ];
@@ -53,7 +53,7 @@
 
 
   # Add your user to the vboxusers group
-  #users.users.gecko.extraGroups = [ "vboxusers" ];
+  #users.users.shiba.extraGroups = [ "vboxusers" ];
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
   # on your system were taken. It‘s perfectly fine and recommended to leave

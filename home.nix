@@ -4,8 +4,8 @@
 		./modules/neovim.nix
 		./modules/nu.nix
 	];
-	home.username = "gecko";
-	home.homeDirectory = "/home/gecko";
+	home.username = "shiba";
+	home.homeDirectory = "/home/shiba";
 
 	home.file.".config/nvim".source = config.lib.file.mkOutOfStoreSymlink 
 		"${config.home.homeDirectory}/nixos-dotfiles/config/nvim";
