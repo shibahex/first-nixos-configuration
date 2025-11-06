@@ -7,8 +7,31 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
-  outputs = {self, nixpkgs, home-manager, ...}: let 
+  outputs = {self, nixpkgs, home-manager, ...}@inputs: let 
     system = "x86_64-linux";
+          # Helper function to create a host configuration
+      mkHost =
+        {
+          hostname,
+          profile,
+          username,
+        }:
+        nixpkgs.lib.nixosSystem {
+          inherit system;
+          specialArgs = {
+            inherit inputs;
+            host = hostname;
+            inherit profile;
+            inherit username;
+            zen-browser = inputs.zen-browser.packages.${system}.default;
+            helium-browser = inputs.helium-browser.packages.${system}.helium-browser;
+          };
+          modules = [
+            ./profiles/${profile}
+          ];
+        };
+
+
     pkgs = import nixpkgs { inherit system; };
     
     # Define suckless packages with local configs
@@ -43,7 +66,13 @@
       inherit dwm dmenu st slstatus;
       default = dwm;
     };
-    
+    default = mkHost {
+          hostname = "nixos";
+          profile = "intel";
+          username = "shiba";
+        };
+
+
     devShells.${system} = let
       # Base neovim packages
       neovimPackages = with pkgs; [
@@ -139,7 +168,7 @@
           home-manager = {
             useGlobalPkgs = true;
             useUserPackages = true;
-            users.gecko = import ./home.nix;
+            users.shiba= import ./home.nix;
             backupFileExtension = "backup";
             extraSpecialArgs = {
               inherit dwm dmenu st slstatus;
@@ -164,7 +193,7 @@
 
         # Add slstatus systemd service in home-manager
         {
-          home-manager.users.gecko = {
+          home-manager.users.shiba = {
             systemd.user.services.slstatus = {
               Unit = {
                 Description = "slstatus status bar";

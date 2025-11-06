@@ -1,4 +1,4 @@
-{config, pkgs,  ...}:
+{config, lib, pkgs,  ...}:
 {
 	imports = [
 		./modules/neovim.nix
@@ -6,7 +6,6 @@
 	];
 	home.username = "shiba";
 	home.homeDirectory = "/home/shiba";
-
 	home.file.".config/nvim".source = config.lib.file.mkOutOfStoreSymlink 
 		"${config.home.homeDirectory}/nixos-dotfiles/config/nvim";
 
@@ -16,7 +15,6 @@
 		userName = "Brandon";
 	};
 
-
 	home.stateVersion = "25.05";
 	home.packages = with pkgs; [
 			xwallpaper
@@ -25,12 +23,9 @@
 			nushell
 			btop
 			fastfetch
-		easyeffects
-		pavucontrol
-			#_1password-gui
+			easyeffects
+			pavucontrol
 	];
-
-
 
 
 }

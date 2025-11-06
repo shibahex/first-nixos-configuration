@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, lib, pkgs, ... }:
 
 {
   imports =
@@ -15,18 +15,10 @@
   networking.networkmanager.enable = true;
   time.timeZone = "America/New_York";
 
-  services.displayManager.ly.enable = true;
-
-  services.xserver = {
-	  enable = true;
-	  autorun = false;
-	  autoRepeatDelay = 200;
-	  autoRepeatInterval = 35;
-  };
   users.users.shiba = {
     isNormalUser = true;
     description = "brandon";
-    extraGroups = [ "networkmanager" "wheel" "vboxusers" ];
+    extraGroups = [ "networkmanager" "wheel"];
     packages = with pkgs; [];
   };
 
@@ -37,8 +29,6 @@
   ];
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
-  # Load VirtualBox kernel modules (maybe delete)
-  virtualisation.virtualbox.host.enable = true;
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
@@ -47,7 +37,17 @@
 	nushell
 	direnv
 	xclip
+	wireguard-tools
+	_1password
   ];
+
+  programs._1password.enable = true;
+  programs._1password-gui = {
+    enable = true;
+  #  # Certain features, including CLI integration and system authentication support,
+  #  # require enabling PolKit integration on some desktop environments (e.g. Plasma).
+    polkitPolicyOwners = [ "shiba" ];
+  };
 
   users.defaultUserShell = pkgs.nushell; 
 
