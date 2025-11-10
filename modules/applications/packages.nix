@@ -1,9 +1,5 @@
-{
-  pkgs,
-  lib,
-  ...
-}: {
-  
+{ pkgs, ... }: {
+
   environment.systemPackages = with pkgs; [
     librewolf
     _1password-gui
