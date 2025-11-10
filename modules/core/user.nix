@@ -1,38 +1,23 @@
-{
-  pkgs,
-  inputs,
-  username,
-  host,
-  profile,
-  ...
-}:
+{ pkgs, inputs, username, host, profile, ... }:
 let
   variables = import ../../hosts/${host}/variables.nix;
   inherit (variables) gitUsername;
   defaultShell = variables.defaultShell or "zsh";
-  shellPackage = if defaultShell == "fish" then pkgs.fish else pkgs.zsh;
-in
-{
+  shellPackage = if defaultShell == "nushell" then pkgs.nushell else pkgs.zsh;
+in {
   imports = [ inputs.home-manager.nixosModules.home-manager ];
 
-  # Enable Fish and Zsh system-wide for vendor completions
-  programs.fish.enable = true;
+  # Enable fish and Zsh system-wide for vendor completions
   programs.zsh.enable = true;
+  programs.fish.enable = true;
 
   home-manager = {
     useUserPackages = true;
     useGlobalPkgs = false;
     backupFileExtension = "backup";
-    extraSpecialArgs = {
-      inherit
-        inputs
-        username
-        host
-        profile
-        ;
-    };
+    extraSpecialArgs = { inherit inputs username host profile; };
     users.${username} = {
-      #imports = [ ./../home ];
+      imports = [ ../home-apps/neovim.nix ];
       home = {
         username = "${username}";
         homeDirectory = "/home/${username}";
