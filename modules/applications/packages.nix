@@ -3,16 +3,19 @@
   lib,
   ...
 }: {
-  programs = {
-    neovim = {
-      enable = true;
-      defaultEditor = true;
-    };
-  };
-
   
   environment.systemPackages = with pkgs; [
     librewolf
-    # packages here
+    _1password-gui
+    pavucontrol
+    easyeffects
+    tree
+    git
+
+    vesktop
+    nushell
+    arduino
+    spotify
+    ungoogled-chromium
   ];
 }
