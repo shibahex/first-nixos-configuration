@@ -1,8 +1,4 @@
-{inputs, ...}: {
-  imports = [
-    ./boot.nix
-    ./user.nix
-    ./fonts.nix
-    ./services.nix
-  ];
+{ ... }: {
+  imports =
+    [ ./boot.nix ./home-manager.nix ./fonts.nix ./services.nix ./cursors.nix ];
 }
