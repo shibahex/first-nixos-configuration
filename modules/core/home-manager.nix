@@ -1,10 +1,11 @@
 { pkgs, inputs, username, host, profile, ... }:
 let
-  variables = import ../../hosts/${host}/variables.nix;
+  variables = import ../../hosts/${host}/variables.nix { pkgs = pkgs; };
   inherit (variables) gitUsername;
   defaultShell = variables.defaultShell or "zsh";
   shellPackage = if defaultShell == "nushell" then pkgs.nushell else pkgs.zsh;
-in {
+in
+{
   imports = [ inputs.home-manager.nixosModules.home-manager ];
 
   # Enable fish and Zsh system-wide for vendor completions
@@ -17,7 +18,7 @@ in {
     backupFileExtension = "backup";
     extraSpecialArgs = { inherit inputs username host profile; };
     users.${username} = {
-      imports = [ ../home-apps/neovim.nix ];
+      imports = [ ../home-apps/neovim.nix ../home-apps/monitors.nix ];
       home = {
         username = "${username}";
         homeDirectory = "/home/${username}";
