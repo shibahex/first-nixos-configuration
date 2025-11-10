@@ -11,4 +11,6 @@
   # Startup Applications
   startupApps = [
   ];
+
+ defaultShell = "nushell";
 }
