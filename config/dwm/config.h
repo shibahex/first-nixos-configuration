@@ -9,7 +9,7 @@ static const char *fonts[]          = { "JetBrainsMono Nerd Font:size=14" };
 static const char dmenufont[]       = "monospace:size=14";
 static const char col_fg_norm[]   = "#7dcfff";
 static const char col_bg_norm[]   = "#24283b";
-static const char col_fg_sel[]    = "#000000";
+static const char col_fg_sel[]    = "#6cb4de";
 static const char col_bg_sel[]    = "#24283b";
 static const char col_border_sel[] = "#7aa2f7";
 static const char col_border_norm[] = "#24283b";
