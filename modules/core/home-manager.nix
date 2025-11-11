@@ -18,7 +18,7 @@ in
     backupFileExtension = "backup";
     extraSpecialArgs = { inherit inputs username host profile; };
     users.${username} = {
-      imports = [ ../home-apps/neovim.nix ../home-apps/monitors.nix ];
+      imports = [ ../home-apps ];
       home = {
         username = "${username}";
         homeDirectory = "/home/${username}";
