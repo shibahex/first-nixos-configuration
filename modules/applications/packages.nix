@@ -10,5 +10,8 @@
     nushell
     arduino
     ungoogled-chromium
+
+    # Screenshots
+    flameshot
   ];
 }
