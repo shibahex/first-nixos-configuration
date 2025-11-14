@@ -15,4 +15,5 @@ in
   i18n.defaultLocale = "en_US.UTF-8";
   system.stateVersion = "25.05";
   nixpkgs.config.allowUnfree = true;
+
 }
