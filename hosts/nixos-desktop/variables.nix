@@ -1,9 +1,12 @@
 { pkgs }: {
+  #Mainly used for hardware.nix or etc, inital setup in flake.nix has your hostname
+  hostName = "shiba";
+
   # Git Configuration
   gitUsername = "shiba";
   gitEmail = "shiba@nixos-desktop";
-
   timeZone = "America/New_York";
+
   # For Nvidia Prime support
   # Run 'lspci | grep VGA' to find your actual GPU IDs
   intelID = "PCI:0:2:0"; # Update with your integrated GPU ID
