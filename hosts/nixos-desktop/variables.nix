@@ -23,9 +23,12 @@
     primary = true;
     atomic = true;
     execute_after = [
-      "${pkgs.xorg.xrandr}/bin/xrandr --output HDMI-0 --mode 2560x1440 --rate 143.91 --primary"
-      "${pkgs.xorg.xrandr}/bin/xrandr --output DP-2 --mode 2560x1440 --rate 100 --right-of HDMI-0 --rotate right"
+      "${pkgs.xorg.xrandr}/bin/xrandr --output DP-4 --mode 3840x2160 --rate 144 --primary"
+      "${pkgs.xorg.xrandr}--output DP-2 --mode 2560x1440 --rate 100 --right-of DP-4 --rotate right"
     ];
   }];
+
+  # Set network hostId if required (needed for zfs)
+  hostId = "5ab03f50";
 
 }
