@@ -10,7 +10,14 @@ let
 in
 {
 
-  home.packages = [ pkgs.neovim pkgs.gcc pkgs.xclip pkgs.ripgrep ];
+  home.packages = [
+    pkgs.neovim
+    pkgs.gcc
+    pkgs.xclip
+    pkgs.ripgrep
+    # Deno is for Peek (markdown viewer for neovim)
+    pkgs.deno
+  ];
 
   programs.neovim = {
     #enable = true;
