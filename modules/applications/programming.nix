@@ -1,12 +1,10 @@
 { pkgs, ... }: {
 
   environment.systemPackages = with pkgs; [
-    #Languages
-    # cargo # Rust
-    # rustup # rust (for rust-analyzer)
-    # go # golang
+    #Nushell is a terminal
+    nushell
+    arduino
 
-    #git
     lazygit # for committing on github
     git
   ];

@@ -1,25 +1,22 @@
 { pkgs, ... }: {
-
-  xdg.portal = {
-    enable = true;
-    extraPortals = [ pkgs.xdg-desktop-portal-gnome ];
-  };
-  services.flatpak.enable = true;
-
   programs.steam.enable = true;
   environment.systemPackages = with pkgs; [
+    #Browser
     librewolf
-    _1password-gui
-
-    tree
-
-    obs-studio
-    vesktop
-    nushell
-    arduino
     ungoogled-chromium
 
-    flatpak
+    # Password Manager
+    _1password-gui
+
+    # Terminal Command to see file structures
+    tree
+
+    # Recording App
+    obs-studio
+
+    # Discord
+    vesktop
+
     # Screenshots
     flameshot
   ];
