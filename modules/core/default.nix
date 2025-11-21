@@ -5,5 +5,6 @@
     ./fonts.nix
     ./services.nix
     ./nix-system.nix
+    ./network.nix
   ];
 }
